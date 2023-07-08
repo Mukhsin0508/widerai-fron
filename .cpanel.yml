@@ -1,8 +1,7 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/wideraiu/repositories/WiderAI/.git/public_html/
+    - export DEPLOYPATH=/home/wideraiu/public_html/
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R js $DEPLOYPATH
     - /bin/cp -R styles $DEPLOYPATH
     - /bin/cp -R index.html $DEPLOYPATH
-    
