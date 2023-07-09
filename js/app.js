@@ -7,20 +7,23 @@ voiceSelector.onchange = (e) => {
 };
 
 window.onload = () => {
-  speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance();
-  //"Hello there! Welcome to Wider AI!"
-  // utterance.voice = speechSynthesis.getVoices()[0];
-  const timer = setInterval(function () {
-    voices = speechSynthesis.getVoices();
-    if (voices.length !== 0) {
-      utterance.voice = voices[1];
-      utterance.lang = "en-US";
-      speechSynthesis.speak(utterance);
-      clearInterval(timer);
-    }
-  }, 200);
+  const button = document.getElementById("speak-button");
+  button.addEventListener("click", () => {
+    speakText("Hello there! Welcome to Wider AI!");
+  });
 };
+
+function speakText(text) {
+  speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  const voices = speechSynthesis.getVoices();
+  if (voices.length !== 0) {
+    utterance.voice = voices[1];
+    utterance.lang = "en-US";
+    speechSynthesis.speak(utterance);
+  }
+}
+
 
 if ("webkitSpeechRecognition" in window) {
   const recognition = new window.webkitSpeechRecognition();
