@@ -11,9 +11,9 @@ window.onload = () => {
   button.addEventListener("click", () => {
     speakText("Hello there! Welcome to Wider AI!");
   });
-};
+}; 
 
-function speakText(text) {
+function speakText(text) { 
   speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
   const voices = speechSynthesis.getVoices();
